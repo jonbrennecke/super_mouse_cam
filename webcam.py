@@ -1,6 +1,30 @@
+# this tiny python script will create a webcam window for multiple USB devices
+# 
+# Currently, calling the program with the following prompt:
+#
+#   $ python ./webcam.py 1 3
+#
+# will create a webcam window for USB devices 1 and 3. In the future, this behavior 
+# should be modified so that a seperate 'USBWidget' window opens, displaying a 
+# list of connected USB devices and allowing the user to create 'VideoWidget'
+# instances for as many USB devices as desired.
+#
+# dependencies: 
+#   - PyQt4 (algthough PySide should also work)
+#   - PIL
+#   - cv (PyOpenCV)
+#
+# created by jonbrennecke / http://jonbrennecke.com/
+#
+#
+
 import cv, sys
 from PIL import Image, ImageQt
 from PyQt4 import QtGui, QtCore
+
+class USBWidget(QtGui.QWidget) :
+    def __init__(self) :
+        super(USBWidget, self).__init__()
 
 # main VideoWidget window
 class VideoWidget(QtGui.QWidget) :
