@@ -33,8 +33,8 @@ class VideoWidget(QtGui.QWidget) :
         self.idx = idx;
         self.capture = cv.CreateCameraCapture(idx)
         frame = cv.QueryFrame(self.capture)
-        self.size = (frame.width,frame.height)
-        self.pixmap = QtGui.QPixmap(frame.width,frame.height)
+        self.size = (640,480)
+        self.pixmap = QtGui.QPixmap(640,480)
         self.painter = QtGui.QPainter(self.pixmap)
         self.initUI()
 
@@ -100,9 +100,9 @@ class IplQImage(QtGui.QImage):
  
 if __name__ == '__main__':
     app = QtGui.QApplication(sys.argv)
-    ex = VideoWidget(1)
+    ex = VideoWidget(0)
 
-    app2 = QtGui.QApplication(sys.argv)
-    ex2 = VideoWidget(2)
+    # app2 = QtGui.QApplication(sys.argv)
+    # ex2 = VideoWidget(2)
 
     sys.exit(app.exec_())
